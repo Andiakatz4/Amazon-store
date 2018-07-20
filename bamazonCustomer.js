@@ -55,7 +55,7 @@ function buyItem() {
           }]).then(function (res) {
             var selection = res.name;
             var amount = parseInt(res.amount)
-            connection.query("SELECT * FROM products WHERE id = ?", [selection], function (err, response) {
+            connection.query("SELECT * FROM products WHERE name = ?", [selection], function (err, response) {
               if (err) { throw err }
               console.log(response);
               if (amount > response[0].quantity) {
